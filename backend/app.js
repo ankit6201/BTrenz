@@ -1,6 +1,7 @@
 const express = require('express')
 const cors = require('cors')
 const app = express()
+const authRouter = require('./routes/authRoutes')
 
 
 
@@ -12,4 +13,5 @@ app.use(express.urlencoded({extended:true}))
 
 
 //  Router
+app.use('/api/auth',authRouter);
 module.exports  = app;
