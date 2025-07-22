@@ -20,7 +20,12 @@ const userSchema  = new mongoose.Schema({
         type:String,
         enum:["admin","seller","user"],
         default:"user"
-    }
+    },
+    resetPasswordToken: String,
+resetPasswordExpire: Date,
+otp: String,
+otpExpire: Date,
+
 },{
     timestamps:true
 })
