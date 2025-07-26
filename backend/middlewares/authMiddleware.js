@@ -22,3 +22,19 @@ exports.protect = async (req,res,next) =>{
         res.status(401).json({message:"Not authorized, no Token "})
      }
 }
+
+exports.adminOnly = (req,res,next)=>{
+   if (req.user && req.user.role==="admin") {
+      next();
+   }else{
+      res.status(403).json({message:"Access denied: Admins only"})
+   }
+}
+
+exports.sellerOnly = (req,res,next)=>{
+   if (res.user && req.user.role ==="seller") {
+      next()
+   }else{
+      res.status(403).json({message:"Access denied: Sellers only"})
+   }
+}
